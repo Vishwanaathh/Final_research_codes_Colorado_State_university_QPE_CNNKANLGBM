@@ -1,0 +1,645 @@
+strict digraph RadarCNN {
+	graph [ordering=in rankdir=TB size="46.8,46.8"]
+	node [align=left fontname="Linux libertine" fontsize=10 height=0.2 margin=0 ranksep=0.1 shape=plaintext style=filled]
+	edge [fontsize=10]
+	0 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>input-tensor<BR/>depth:0</TD><TD>(1, 4, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	1 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">__getitem__<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 4, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 4) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+	2 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 4)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	subgraph cluster_2 {
+		fontsize=12 label=ConvBlock labeljust=l style=dashed
+		subgraph cluster_3 {
+			fontsize=12 label=Sequential labeljust=l style=dashed
+			3 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Conv2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 4, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			4 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 16, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			5 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">BatchNorm2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			6 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 16, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			7 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">GELU<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			8 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 16, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		}
+	}
+	subgraph cluster_4 {
+		fontsize=12 label=ConvBlock labeljust=l style=dashed
+		subgraph cluster_5 {
+			fontsize=12 label=Sequential labeljust=l style=dashed
+			9 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Conv2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 16, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			10 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 32, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			11 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">BatchNorm2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			12 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 32, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			13 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">GELU<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			14 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 32, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		}
+	}
+	subgraph cluster_6 {
+		fontsize=12 label=ConvBlock labeljust=l style=dashed
+		subgraph cluster_7 {
+			fontsize=12 label=Sequential labeljust=l style=dashed
+			15 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Conv2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 32, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			16 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			17 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">BatchNorm2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			18 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			19 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">GELU<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			20 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		}
+	}
+	21 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Dropout2d<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+	22 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	subgraph cluster_8 {
+		fontsize=12 label=ConvBlock labeljust=l style=dashed
+		subgraph cluster_9 {
+			fontsize=12 label=Sequential labeljust=l style=dashed
+			23 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Conv2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			24 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			25 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">BatchNorm2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			26 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			27 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">GELU<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			28 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		}
+	}
+	29 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Dropout2d<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+	30 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	subgraph cluster_10 {
+		fontsize=12 label=SqueezeExcitation labeljust=l style=dashed
+		subgraph cluster_11 {
+			fontsize=12 label=Sequential labeljust=l style=dashed
+			31 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">AdaptiveAvgPool2d<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 1, 1) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			32 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64, 1, 1)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			33 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Flatten<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 1, 1) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			34 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			35 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Linear<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 4) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			36 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 4)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			37 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">ReLU<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 4) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 4) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			38 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 4)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			39 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Linear<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 4) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			40 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:3</TD><TD>(1, 64)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+			41 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Sigmoid<BR/>depth:3</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+			42 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:2</TD><TD>(1, 64)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		}
+		43 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">unsqueeze<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 1) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+		44 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:2</TD><TD>(1, 64, 1)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		45 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">unsqueeze<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 1) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 1, 1) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+		46 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:2</TD><TD>(1, 64, 1, 1)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		47 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">mul<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9), (1, 64, 1, 1) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+		48 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 9, 9)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	}
+	49 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">AdaptiveAvgPool2d<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 9, 9) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64, 1, 1) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+	50 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64, 1, 1)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	51 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">flatten<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64, 1, 1) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 64) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+	52 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 64)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	53 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">cat<BR/>depth:1</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 64), (1, 4) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 68) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=aliceblue]
+	54 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:1</TD><TD>(1, 68)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	subgraph cluster_12 {
+		fontsize=12 label=Sequential labeljust=l style=dashed
+		55 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">Linear<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 68) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+		56 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:2</TD><TD>(1, 32)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		57 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">LayerNorm<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 32) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+		58 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>hidden-tensor<BR/>depth:2</TD><TD>(1, 32)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+		59 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                    <TR>
+                        <TD ROWSPAN="2">GELU<BR/>depth:2</TD>
+                        <TD COLSPAN="2">input:</TD>
+                        <TD COLSPAN="2">(1, 32) </TD>
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="2">output: </TD>
+                        <TD COLSPAN="2">(1, 32) </TD>
+                    </TR>
+                    </TABLE>> fillcolor=darkseagreen1]
+		60 [label=<
+                    <TABLE BORDER="0" CELLBORDER="1"
+                    CELLSPACING="0" CELLPADDING="4">
+                        <TR><TD>output-tensor<BR/>depth:0</TD><TD>(1, 32)</TD></TR>
+                    </TABLE>> fillcolor=lightyellow]
+	}
+	0 -> 1
+	2 -> 53
+	1 -> 2
+	0 -> 3
+	4 -> 5
+	3 -> 4
+	6 -> 7
+	5 -> 6
+	7 -> 8
+	8 -> 9
+	10 -> 11
+	9 -> 10
+	12 -> 13
+	11 -> 12
+	13 -> 14
+	14 -> 15
+	16 -> 17
+	15 -> 16
+	18 -> 19
+	17 -> 18
+	20 -> 21
+	19 -> 20
+	21 -> 22
+	22 -> 23
+	24 -> 25
+	23 -> 24
+	26 -> 27
+	25 -> 26
+	28 -> 29
+	27 -> 28
+	29 -> 30
+	30 -> 47
+	30 -> 31
+	32 -> 33
+	31 -> 32
+	34 -> 35
+	33 -> 34
+	36 -> 37
+	35 -> 36
+	38 -> 39
+	37 -> 38
+	40 -> 41
+	39 -> 40
+	42 -> 43
+	41 -> 42
+	44 -> 45
+	43 -> 44
+	46 -> 47
+	45 -> 46
+	48 -> 49
+	47 -> 48
+	50 -> 51
+	49 -> 50
+	52 -> 53
+	51 -> 52
+	53 -> 54
+	54 -> 55
+	56 -> 57
+	55 -> 56
+	58 -> 59
+	57 -> 58
+	59 -> 60
+}
