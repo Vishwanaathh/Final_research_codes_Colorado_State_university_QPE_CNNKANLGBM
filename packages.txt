@@ -1,0 +1,33 @@
+# QPE CNN+KAN+LightGBM Pipeline
+# Install with: pip install -r requirements.txt
+
+# Core scientific
+numpy
+pandas
+scipy
+
+# Deep learning
+torch
+torchvision
+
+# Gradient boosting
+lightgbm
+
+# Radar data
+arm-pyart
+
+# NEXRAD download
+nexradaws
+
+# Progress bar
+tqdm
+
+# Plotting
+matplotlib
+
+#optimizing
+optuna
+optuna-integration[lightgbm]
+
+#viewing
+torchview
